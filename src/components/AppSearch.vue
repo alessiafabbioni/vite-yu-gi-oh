@@ -9,7 +9,7 @@ export default {
 
 <template>
     <section>
-        <div class="dropdown container">
+        <div class="ms-dropdown dropdown container">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Cerca
             </button>
@@ -32,7 +32,14 @@ export default {
 section {
     background-color: $bg-color;
     width: 100%;
+
+
 }
+
+.ms-dropdown {
+    padding: 2rem 0;
+        
+    }
 
 
 
