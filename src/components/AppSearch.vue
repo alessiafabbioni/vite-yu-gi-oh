@@ -1,7 +1,6 @@
 <script>
 export default {
     name: 'AppSearch',
-   
 
 }
 
@@ -9,8 +8,19 @@ export default {
 </script>
 
 <template>
-  
-
+    <section>
+        <div class="dropdown container">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Cerca
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </div>
+        
+    </section>
 
 </template>
 
@@ -19,6 +29,10 @@ export default {
 @use '../styles/partials/variables.scss' as *;
 @use '../styles/partials/mixins.scss' as *;
 
+section {
+    background-color: $bg-color;
+    width: 100%;
+}
 
 
 

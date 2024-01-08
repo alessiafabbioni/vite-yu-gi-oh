@@ -18,7 +18,6 @@ export default {
   <main>
     <AppSearch/>
     <CharacterList/>
-
   </main>
 </template>
 

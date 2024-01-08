@@ -1,7 +1,6 @@
 <script>
 export default {
     name: 'CharacterList',
-   
 
 }
 
@@ -9,10 +8,11 @@ export default {
 </script>
 
 <template>
-  
+
 
 
 </template>
+
 
 <style lang="scss" scoped>
 
