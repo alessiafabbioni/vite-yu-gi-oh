@@ -7,4 +7,6 @@ export const store = reactive ({
     searchText: "",
     loading: true,
     nameArch: "archetype",
+    archetypes: [],
+    selectedArchetype: "",
 });

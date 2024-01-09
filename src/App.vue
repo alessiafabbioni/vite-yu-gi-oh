@@ -27,8 +27,9 @@ export default {
       let myUrl = store.apiURL;
       let archUrl = store.archUrl;
 
-      if(store.searchText !== "") {
-        myUrl += `?${store.nameArch}=${store.searchText}`;      }
+      if(store.selectedArchetype !== "") {
+        myUrl += `?$name=${store.selectedArchetype}`;      
+      }
 
 
       axios
@@ -45,6 +46,7 @@ export default {
         .get(archUrl)
         .then((res => {
           this.archetypes = res.data;
+          store.archetypes = res.data;
         }))
 
         .catch((err)=>{
@@ -63,7 +65,7 @@ export default {
 <template>
   <AppHeader message="Yu-Gi-Oh"/>
   <main>
-    <AppSearch @performSearch="getCards"/>
+    <AppSearch @archSelected="getCards"/>
     <CharacterList/>
   </main>
 </template>

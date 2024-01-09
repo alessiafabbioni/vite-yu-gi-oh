@@ -23,11 +23,12 @@ export default {
 
 <template>
     <section>
-        <div class="ms-dropdown input-group">
-                <input type="text" class="form-control" placeholder="Search your card" aria-label="card search" v-model.trim="store.searchText">
-                <button class="btn btn-primary" type="button" @click.prevent="$emit('performSearch')">Search</button>
-                <button class="btn btn-warning" type="button"@click='resetSearch'>Reset</button>
-        </div>
+        
+        <select class="form-select" aria-label="Default select example" v-model="store.selectedArchetype" @change="$emit('archSelected')">
+            <option selected disabled value="">Open this select menu</option>
+            <option v-for="archetype in store.archetypes" :key="archetype.id" :value="archetype.id">{{ store.archetypes[0].archetype_name }} </option>
+
+        </select>
         
     </section>
 
