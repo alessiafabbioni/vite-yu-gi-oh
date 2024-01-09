@@ -19,11 +19,13 @@ export default {
   data() {
     return {
       store,
+      archetypes: [],
     }
   },
   methods: {
     getCards() {
       let myUrl = store.apiURL;
+      let archUrl = store.archUrl;
 
       if(store.searchText !== "") {
         myUrl += `?${store.nameArch}=${store.searchText}`;      }
@@ -35,6 +37,16 @@ export default {
           //console.log(res.data.data);
           store.cardList = res.data.data;
         }))
+        .catch((err)=>{
+          console.log("Errori", err);
+        })
+
+      axios
+        .get(archUrl)
+        .then((res => {
+          this.archetypes = res.data;
+        }))
+
         .catch((err)=>{
           console.log("Errori", err);
         })
