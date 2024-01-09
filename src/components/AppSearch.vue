@@ -1,6 +1,20 @@
 <script>
+import {store} from '../store';
+
 export default {
     name: 'AppSearch',
+    data () {
+        return {
+            store,
+        }
+    },
+
+    methods: {
+        resetSearch() {
+            store.searchText = "";
+            this.$emit('performSearch');
+        } 
+    }
 
 }
 
@@ -9,15 +23,10 @@ export default {
 
 <template>
     <section>
-        <div class="ms-dropdown dropdown container">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Cerca
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+        <div class="ms-dropdown input-group">
+                <input type="text" class="form-control" placeholder="Search your card" aria-label="card search" v-model.trim="store.searchText">
+                <button class="btn btn-primary" type="button" @click.prevent="$emit('performSearch')">Search</button>
+                <button class="btn btn-warning" type="button"@click='resetSearch'>Reset</button>
         </div>
         
     </section>
@@ -37,7 +46,7 @@ section {
 }
 
 .ms-dropdown {
-    padding: 2rem 0;
+    padding: 2rem 30rem;
         
     }
 

@@ -23,8 +23,14 @@ export default {
   },
   methods: {
     getCards() {
+      let myUrl = store.apiURL;
+
+      if(store.searchText !== "") {
+        myUrl += `?${store.nameArch}=${store.searchText}`;      }
+
+
       axios
-        .get(store.apiURL)
+        .get(myUrl)
         .then((res => {
           //console.log(res.data.data);
           store.cardList = res.data.data;
@@ -45,7 +51,7 @@ export default {
 <template>
   <AppHeader message="Yu-Gi-Oh"/>
   <main>
-    <AppSearch/>
+    <AppSearch @performSearch="getCards"/>
     <CharacterList/>
   </main>
 </template>
